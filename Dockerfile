@@ -7,7 +7,5 @@ COPY acl_file /mosquitto/config/acl_file
 
 
 # Expose default Mosquitto ports
-EXPOSE 1883 9001
+EXPOSE 1883
 
-# Start Mosquitto broker
-CMD ["/usr/sbin/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
