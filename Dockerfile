@@ -1,11 +1,13 @@
-# Use a imagem oficial do Eclipse Mosquitto
+# Use the official Eclipse Mosquitto image
 FROM eclipse-mosquitto
 
-# Copia os arquivos de configuração para o diretório correto
+# Copy generic Mosquitto configuration files
 COPY mosquitto.conf /mosquitto/config/mosquitto.conf
 COPY acl_file /mosquitto/config/acl_file
 
-# Expõe as portas padrão do Mosquitto
+
+# Expose default Mosquitto ports
 EXPOSE 1883 9001
 
-# Usa o comando padrão da imagem oficial para iniciar o Mosquitto
+# Start Mosquitto broker
+CMD ["/usr/sbin/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
